@@ -11,13 +11,13 @@
 <div class = "container mt-5">
     <div th:each="el : ${users}" class="alert alert-info mt-2">
         <h3 th:text="${el.name} + ' ' + ${el.surname}"/>
-<!--        <form method="post">-->
             <div class="bd-example">
                 <table class="table table-info table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">Type</th>
-                            <th scope="col">Volume</th>
+                            <th scope="col">Занятие</th>
+                            <th scope="col">Баллы</th>
+                            <th scope="col">Посещение</th>
                         </tr>
                     </thead>
                     <tbody th:each="el_progress : ${progress}">
@@ -25,24 +25,61 @@
                             <td>
                                 <p th:text="${el_progress.lesson_name}"/>
                             </td>
-                            <td>
-                                <input type="text" th:value="${el_progress.lesson}" name="seminar" class="form-control">
-                            </td>
+                            <form method="post">
+                                <td>
+                                    <select name="lesson">
+                                        <option selected="selected" th:value="${el_progress.lesson}" th:text="${el_progress.lesson}"/>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="visit_lesson">
+                                        <option selected="selected" th:value="${el_progress.visit_lesson}" th:text="${el_progress.visit_lesson}"/>
+                                        <option value="Был">Был</option>
+                                        <option value="Не был">Не был</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-warning" th:name="id" th:value="${el_progress.id}">Save lesson info</button>
+                                </td>
+                            </form>
                         </tr>
                         <tr th:if="${el.id} == ${el_progress.id_user}">
                             <td>
                                 <p th:text="${el_progress.lecture_name}"/>
                             </td>
-                            <td>
-                                <input type="text" th:value="${el_progress.lecture}" name="lecture" class="form-control">
-                            </td>
+                            <form method="post">
+                                <td>
+                                    <select name="lecture">
+                                        <option selected="selected" th:value="${el_progress.lecture}" th:text="${el_progress.lecture}"/>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="visit_lecture">
+                                        <option selected="selected" th:value="${el_progress.visit_lecture}" th:text="${el_progress.visit_lecture}"/>
+                                        <option value="1">Был</option>
+                                        <option value="2">Не был</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-warning" th:name="id" th:value="${el_progress.id}">Save lecture info</button>
+                                </td>
+                            </form>
                         </tr>
                     </tbody>
                 </table>
+<!--                <a th:href="" class="btn btn-warning">Сохранить</a>-->
             </div>
-<!--        </form>-->
-<!--        <a th:href="" class="btn btn-warning">Сохранить</a>-->
-    </div>
+    </div><br><br>
 </div>
 
 </body>

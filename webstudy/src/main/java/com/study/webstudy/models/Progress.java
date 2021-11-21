@@ -12,18 +12,22 @@ public class Progress {
 
     private String lesson_name;
     private String lecture_name;
-    private String lesson;
-    private String lecture;
+    private Integer lesson;
+    private Integer lecture;
+    private String visit_lesson;
+    private String visit_lecture;
     private String id_user;
 
     public Progress(){}
 
-    public Progress(Integer id, String lesson_name, String lecture_name, String lesson, String lecture, String id_user) {
-        this.id = id;
+
+    public Progress(String lesson_name, String lecture_name, Integer lesson, Integer lecture, String visit_lesson, String visit_lecture, String id_user) {
         this.lesson_name = lesson_name;
         this.lecture_name = lecture_name;
         this.lesson = lesson;
         this.lecture = lecture;
+        this.visit_lesson = visit_lesson;
+        this.visit_lecture = visit_lecture;
         this.id_user = id_user;
     }
 
@@ -51,20 +55,36 @@ public class Progress {
         this.lecture_name = lecture_name;
     }
 
-    public String getLesson() {
+    public Integer getLesson() {
         return lesson;
     }
 
-    public void setLesson(String lesson) {
+    public void setLesson(Integer lesson) {
         this.lesson = lesson;
     }
 
-    public String getLecture() {
+    public Integer getLecture() {
         return lecture;
     }
 
-    public void setLecture(String lecture) {
+    public void setLecture(Integer lecture) {
         this.lecture = lecture;
+    }
+
+    public String getVisit_lesson() {
+        return visit_lesson;
+    }
+
+    public void setVisit_lesson(String visit_lesson) {
+        this.visit_lesson = visit_lesson;
+    }
+
+    public String getVisit_lecture() {
+        return visit_lecture;
+    }
+
+    public void setVisit_lecture(String visit_lecture) {
+        this.visit_lecture = visit_lecture;
     }
 
     public String getId_user() {

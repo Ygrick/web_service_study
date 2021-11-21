@@ -11,7 +11,7 @@
         <h1>Пользователи</h1>
         <div th:each="el : ${users}" class="alert alert-info mt-2">
             <h3 th:text="${el.name} + ' ' + ${el.surname}"/>
-            <a th:href="'/progress/' + ${el.id}" class="btn btn-warning">Успеваемость</a>
+            <a th:href="'/users/' + ${el.id}" class="btn btn-warning">Успеваемость и посещаемость</a>
         </div>
     </div>
 </body>
