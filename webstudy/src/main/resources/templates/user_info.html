@@ -7,46 +7,49 @@
 </head>
 <body>
 <header th:insert="block/header.html :: header"></header>
-
-    <div class = "container mt-5">
-        <div th:each="el : ${user}" class="alert alert-info mt-2">
-            <h3 th:text="${el.name} + ' ' + ${el.surname}"/>
-            <div class="bd-example">
-                <table class="table table-info table-bordered">
-                    <thead>
-                    <tr>
-                        <th scope="col">Занятие</th>
-                        <th scope="col">Баллы</th>
-                        <th scope="col">Посещение</th>
-                    </tr>
-                    </thead>
-                    <tbody th:each="el_progress : ${progress}">
-                        <tr th:if="${el.id} == ${el_progress.id_user}">
-                            <td>
-                                <p th:text="${el_progress.lesson_name}"/>
-                            </td>
-                            <td>
-                                <p th:text="${el_progress.lesson}"/>
-                            </td>
-                            <td>
-                                <p th:text="${el_progress.visit_lesson}"/>
-                            </td>
+<div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 overflow-hidden">
+    <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 100%; border-radius: 21px 21px 0 0;">
+            <div class = "container pb-5 pt-5 mt-10 mb-5">
+                <div th:each="el : ${user}" class="alert alert-info mt-2">
+                <h3 th:text="${el.name} + ' ' + ${el.surname}"/>
+                <div class="bd-example">
+                    <table class="table table-info table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Занятие</th>
+                            <th scope="col">Баллы</th>
+                            <th scope="col">Посещение</th>
                         </tr>
-                        <tr th:if="${el.id} == ${el_progress.id_user}">
-                            <td>
-                                <p th:text="${el_progress.lecture_name}"/>
-                            </td>
-                            <td>
-                                <p th:text="${el_progress.lecture}"/>
-                            </td>
-                            <td>
-                                <p th:text="${el_progress.visit_lecture}"/>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody th:each="el_progress : ${progress}">
+                            <tr th:if="${el.id} == ${el_progress.id_user}">
+                                <td>
+                                    <p th:text="${el_progress.lesson_name}"/>
+                                </td>
+                                <td>
+                                    <p th:text="${el_progress.lesson}"/>
+                                </td>
+                                <td>
+                                    <p th:text="${el_progress.visit_lesson}"/>
+                                </td>
+                            </tr>
+                            <tr th:if="${el.id} == ${el_progress.id_user}">
+                                <td>
+                                    <p th:text="${el_progress.lecture_name}"/>
+                                </td>
+                                <td>
+                                    <p th:text="${el_progress.lecture}"/>
+                                </td>
+                                <td>
+                                    <p th:text="${el_progress.visit_lecture}"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
     </div>
+    </div>
+</div>
 </body>
 </html>

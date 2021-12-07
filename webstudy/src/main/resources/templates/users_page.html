@@ -7,12 +7,16 @@
 </head>
 <body>
 <header th:insert="block/header.html :: header"></header>
-    <div class = "container mt-5">
-        <h1>Пользователи</h1>
-        <div th:each="el : ${users}" class="alert alert-info mt-2">
-            <h3 th:text="${el.name} + ' ' + ${el.surname}"/>
-            <a th:href="'/users/' + ${el.id}" class="btn btn-warning">Успеваемость и посещаемость</a>
+<div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 overflow-hidden">
+    <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 1000px; border-radius: 21px 21px 0 0;">
+        <div class = "container pt-5 mt-5">
+            <h1>Пользователи</h1>
+            <div th:each="el : ${users}" class="alert alert-info mt-2">
+                <h3 th:text="${el.name} + ' ' + ${el.surname}"/>
+                <a th:href="'/users/' + ${el.id}" class="btn btn-warning">Успеваемость и посещаемость</a>
+            </div>
         </div>
     </div>
+</div>
 </body>
 </html>

@@ -1,0 +1,14 @@
+
+
+elseif (isset($_POST["id"]) && isset($_POST["name"]) && isset($_POST["age"])) {
+      
+    $userid = $conn->real_escape_string($_POST["id"]);
+    $username = $conn->real_escape_string($_POST["name"]);
+    $userage = $conn->real_escape_string($_POST["age"]);
+    $sql = "UPDATE Users SET name = '$username', age = '$userage' WHERE id = '$userid'";
+    if($result = $conn->query($sql)){
+        header("Location: index.php");
+    } else{
+        echo "Ошибка: " . $conn->error;
+    }
+}
